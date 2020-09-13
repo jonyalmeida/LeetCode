@@ -32,21 +32,25 @@ s contains only lower-case English letters.
 0 <= indices[i] < n
 All values of indices are unique (i.e. indices is a permutation of the integers from 0 to n - 1).*/
 
-// const restoreString = (s, indices) => {
-//     let str = new Array(s.length);
-//     indices.forEach((idx, i) => {
-//         str[idx] = s[i];
-//     });
-//     return str.join('');
-// };
+//solution 1
+const restoreString1 = (s, indices) => {
+    let str = new Array(s.length);
+    indices.forEach((idx, i) => {
+        str[idx] = s[i];
+    });
+    return str.join('');
+};
 
-const restoreString = (s, indices) => {
+console.log(restoreString1('art', [1, 0, 2]));
+console.log(restoreString1('codeleet', [4, 5, 6, 7, 0, 2, 1, 3]));
+
+
+const restoreString2 = (s, indices) => {
     return indices
         .map((num, i) => ({ letter: s[i], idx: num }))
         .sort((x, y) => x.idx - y.idx)
         .map(el => el.letter).join('')
 };
 
-console.log(restoreString('art', [1, 0, 2]));
-console.log(restoreString('codeleet', [4, 5, 6, 7, 0, 2, 1, 3]));
-
+console.log(restoreString2('art', [1, 0, 2]));
+console.log(restoreString2('codeleet', [4, 5, 6, 7, 0, 2, 1, 3]));
