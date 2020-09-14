@@ -53,7 +53,3 @@ const buildTree2 = (inorder, postorder) => {
   }
 };
 console.log(buildTree2(inorder, postorder));
-
-
-
-
